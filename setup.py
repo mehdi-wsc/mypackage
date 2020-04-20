@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="mypackage", # Replace with your own username
+    name="mypackage-test-wsc", # Replace with your own username
     version="0.0.1",
     author="mehdi wsc",
     author_email="kerbedjm@gmail.com",
