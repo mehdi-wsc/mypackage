@@ -4,14 +4,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="test", # Replace with your own username
+    name="mypackage", # Replace with your own username
     version="0.0.1",
     author="mehdi wsc",
     author_email="kerbedjm@gmail.com",
     description="A small example package",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/mehdi-wsc/test/",
+    url="https://github.com/mehdi-wsc/mypackage.git",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
