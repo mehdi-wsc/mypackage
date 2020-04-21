@@ -25,23 +25,10 @@ def get(nom, region, whichip):
 
 
 def main(group, env):
-    # parser = argparse.ArgumentParser(description=" get ips")
-    # parser.add_argument('--group', help="group")
-    # parser.add_argument('--env', help="env")
-    # args = parser.parse_args()
-    # try:
-    #     group = str(args.group)
-    #     env = str(args.env)
-
-    # except NameError:
-    #     sys.exit(1)
-    # except IndexError:
-    #     sys.exit(1)
-
 
     bastion_public_ip = get("bastion", "eu-west-1", "Public")
 
-    tpl_dir = Environment(loader=FileSystemLoader('/home/mehdi/oss-guidelines/infra-base/templates/'))
+    tpl_dir = Environment(loader=FileSystemLoader('./templates/'))
 
     template_cfg = tpl_dir.get_template('ansible-cfg.j2')
 
