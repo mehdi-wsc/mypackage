@@ -6,7 +6,7 @@ import argparse
 from subprocess import check_output, STDOUT
 from jinja2 import Environment, FileSystemLoader
 
-logger = logging.getLogger()
+logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 stream_handler = logging.StreamHandler()
 stream_handler.setLevel(logging.INFO)
