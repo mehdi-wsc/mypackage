@@ -1,7 +1,7 @@
 import os
 import argparse
 import logging
-import generate
+from mypackage_wsc import generate
 
 logger = logging.getLogger(__name__)
 
