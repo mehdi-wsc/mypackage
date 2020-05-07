@@ -17,16 +17,10 @@ enabled_regions = set(r['RegionName'] for r in default_ec2.describe_regions()['R
 # Logging
 
 logger = logging.getLogger(__name__)
-
 logger.setLevel(logging.INFO)
-
 stream_handler = logging.StreamHandler()
-
 stream_handler.setLevel(logging.INFO)
-
 logger.addHandler(stream_handler)
-
-
 
 # Terraform init Function
 
@@ -36,16 +30,14 @@ def init_layer(layer, region, account, provider, target_bucket):
 
     """
     logger.info("Initalize layer %s \n \n ", layer)
-
     command_init = "terraform init -backend-config region={region}\
     -backend-config dynamodb_table={}-{region}-tfstate-lock\
     -backend-config bucket={}\
     -backend-config key={}.tfstate\
     -force-copy".format(account, target_bucket, layer, region=region)
-
     os.chdir("{}{}/{}/".format(layer_path, provider, layer))
-
     os.system(command_init)
+
 # Terraform Action function
 
 
@@ -79,79 +71,56 @@ def main(args):
 
     # Parse the arguments
     args = parser.parse_args()
-
     account = str(args.account)
-
     action = str(args.action)
-
     region = str(args.region)
-
     layer = str(args.layer)
-
     ignor = args.ignore
-
     provider = str(args.provider)
-
     auto = str(args.approve)
-
     options = ""
-
     target_bucket = "{}-{}-tfstate".format(account, region)
-
     command_find = "ls -1 {}{}".format(layer_path, provider)
-
     output = check_output(command_find, shell=True, stderr=STDOUT)
-
     Layers = str(output.decode("utf-8"))
-
     Layers = Layers.split("\n")
-
     check_argument = True
-
 
     if args.account is None:
 
         logger.error("Missing account argument,Wedeployer Can not run without Account")
-
         sys.exit(1)
 
     try:
 
         account_name = args.account
-
         account_split = account_name.split("-")
-
         group = account_split[0]
-
         env = account_split[1]
 
     except NameError:
 
         logger.error("Error no account argument")
-
         sys.exit()
+
     except IndexError:
 
         logger.error("Error in syntax argument")
-
         sys.exit()
 
     except AttributeError:
 
         logger.error("No attribute argumFileNotFoundError:ent")
-
         sys.exit()
 
     if action not in ("apply", "plan", "destroy"):
 
         logger.error("Error ,Bad Action for Terraform,just 'apply','plan' and 'destroy' are available")
-
         check_argument = False
 
     if region not in enabled_regions:
 
         logger.error("No Region Found with this Name")
-
         check_argument = False
 
     if auto == "yes":
@@ -165,37 +134,29 @@ def main(args):
     if check_argument is False:
 
         logger.info("You must fix errors mentioned above")
-
         sys.exit(1)
-
-
 
     config_dir = "./../../../../configs/{}/{}/terraform".format(group, env)
     target_bucket = "{}-{}-tfstate".format(account, region)
-
     command_find = "ls -1 {}{}".format(layer_path, provider)
     check_layer = layer in Layers
 
     if check_layer is False:
 
         if layer == "None":
-
             logger.error("No layer Argument passed ")
 
         else:
-
             logger.error("Error in layer argument")
 
     else:
         execute_layer(layer, region, account, provider, target_bucket, action, config_dir, options)
-
         sys.exit()
 
 
     if layer == "None" and action in ('apply', 'plan'):
 
         logger.info("#############= No Layer Found in Argument , we will run all Layers ====#####################\n")
-
         for sublayer in Layers:
             try:
                 ignored_layer = ignor[Layers.index(sublayer)]
@@ -205,7 +166,6 @@ def main(args):
                 ignored_layer = ""
             if sublayer not in ('', ignored_layer):
                 execute_layer(sublayer, region, account, provider, target_bucket, action, config_dir, options)
-
                 os.chdir("../../../../")
 
 

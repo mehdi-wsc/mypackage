@@ -36,38 +36,25 @@ def main(group, env):
     Main
 
     """
-
-
     bastion_public_ip = get("bastion", "eu-west-1", "Public")
-
     tpl_dir = Environment(loader=FileSystemLoader('/home/mehdi/oss-guidelines/infra-base/templates/'))
-
     template_cfg = tpl_dir.get_template('ansible-cfg.j2')
-
-
     template_ssh = tpl_dir.get_template('ssh-cfg.j2')
-
-
     template_in = tpl_dir.get_template('inventory.j2')
-
-
     nginx_ips = get("nginx", "eu-west-1", "Private")
-
     nginx_ips = nginx_ips.split("\n")
 
     if nginx_ips == ['']:
         logger.error("Nginx IPs not found, verify your auto-scaling group ")
 
-
     if bastion_public_ip == "":
-
         logger.error("Bastion Ip not found , verify your auto-scaling group ")
-
         sys.exit(1)
 
     tpl_cfg_output = template_cfg.render(group=group, env=env)
     tpl_ssh_output = template_ssh.render(group=group, env=env, bastion_public_ip=bastion_public_ip, nginx_ips=nginx_ips)
     tpl_invt_output = template_in.render(group=group, env=env, bastion_public_ip=bastion_public_ip, nginx_ips=nginx_ips)
+
     try:
         with open('./{}-{}-ansible.cfg'.format(group, env), "w") as f:
             f.write(tpl_cfg_output)
@@ -76,6 +63,7 @@ def main(group, env):
     except FileNotFoundError:
         logger.error("Failed to save file")
         sys.exit(1)
+
     try:
         with open('./configs/{}/{}/ansible/ssh.cfg'.format(group, env), "w") as f:
             f.write(tpl_ssh_output)
@@ -83,6 +71,7 @@ def main(group, env):
     except FileNotFoundError:
         logger.error("Failed to save file")
         sys.exit(1)
+
     try:
         with open('./configs/{}/{}/ansible/inventory'.format(group, env), "w") as f:
             f.write(tpl_invt_output)

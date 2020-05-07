@@ -33,7 +33,6 @@ def main(action, options, group, env, region, provider):
     os.system(command_init)
     os.system(command_apply)
 
-
 if __name__ == '__main__':
     # Initialize the parser
     parser = argparse.ArgumentParser(description="Boot Strap script ")
