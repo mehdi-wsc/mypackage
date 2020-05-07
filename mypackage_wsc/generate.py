@@ -1,3 +1,6 @@
+"""
+genrate configuration files
+"""
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import logging
@@ -13,6 +16,10 @@ stream_handler.setLevel(logging.INFO)
 logger.addHandler(stream_handler)
 
 def get(nom, region, whichip):
+    """
+    get method
+
+    """
     ip = 'aws autoscaling describe-auto-scaling-instances --region {region} \
     --output text --query "AutoScalingInstances[?AutoScalingGroupName==\'{}\'].InstanceId "\
     | xargs -n1 aws ec2 describe-instances --instance-ids $ID --region {region} \
@@ -25,10 +32,15 @@ def get(nom, region, whichip):
 
 
 def main(group, env):
+    """
+    Main
+
+    """
+
 
     bastion_public_ip = get("bastion", "eu-west-1", "Public")
 
-    tpl_dir = Environment(loader=FileSystemLoader('./templates/'))
+    tpl_dir = Environment(loader=FileSystemLoader('/home/mehdi/oss-guidelines/infra-base/templates/'))
 
     template_cfg = tpl_dir.get_template('ansible-cfg.j2')
 
@@ -40,30 +52,42 @@ def main(group, env):
 
 
     nginx_ips = get("nginx", "eu-west-1", "Private")
+
     nginx_ips = nginx_ips.split("\n")
+
+    if nginx_ips == ['']:
+        logger.error("Nginx IPs not found, verify your auto-scaling group ")
+
+
+    if bastion_public_ip == "":
+
+        logger.error("Bastion Ip not found , verify your auto-scaling group ")
+
+        sys.exit(1)
 
     tpl_cfg_output = template_cfg.render(group=group, env=env)
     tpl_ssh_output = template_ssh.render(group=group, env=env, bastion_public_ip=bastion_public_ip, nginx_ips=nginx_ips)
     tpl_invt_output = template_in.render(group=group, env=env, bastion_public_ip=bastion_public_ip, nginx_ips=nginx_ips)
     try:
-        with open('./ansible.cfg', "w") as f:
+        with open('./{}-{}-ansible.cfg'.format(group, env), "w") as f:
             f.write(tpl_cfg_output)
             logger.info("ansible.cfg generated")
-    except:
+
+    except FileNotFoundError:
         logger.error("Failed to save file")
         sys.exit(1)
     try:
         with open('./configs/{}/{}/ansible/ssh.cfg'.format(group, env), "w") as f:
             f.write(tpl_ssh_output)
             logger.info("ssh file generated")
-    except:
+    except FileNotFoundError:
         logger.error("Failed to save file")
         sys.exit(1)
     try:
         with open('./configs/{}/{}/ansible/inventory'.format(group, env), "w") as f:
             f.write(tpl_invt_output)
             logger.info("inventory generated")
-    except:
+    except FileNotFoundError:
         logger.error("Failed to save file")
         sys.exit(1)
 if __name__ == '__main__':
@@ -72,11 +96,11 @@ if __name__ == '__main__':
     parser.add_argument('--env', help="env")
     args = parser.parse_args()
     try:
-        group = str(args.group)
-        env = str(args.env)
+        grp = str(args.group)
+        environment = str(args.env)
 
     except NameError:
         sys.exit(1)
     except IndexError:
         sys.exit(1)
-    main(group, env)
+    main(grp, environment)

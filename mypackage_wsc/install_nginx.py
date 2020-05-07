@@ -15,8 +15,10 @@ logger.addHandler(stream_handler)
 
 
 def main(group, env):
-    if group == None or env == None:
-
+    """
+    Main
+    """
+    if group is None or env is None:
         logger.error("\nNo arguments passed\n")
         logger.warning("Please to run ansible you should pass your group and environnement in arguments\n")
         logger.warning('Syntax : python wedeployer/install-nginx.py --group <group> --env <environnement>\n')
@@ -24,7 +26,6 @@ def main(group, env):
         generate.main(group, env)
         command_ansible = "ansible-playbook ansible/main.yml"
         os.system(command_ansible)
-
 if __name__ == '__main__':
    # Initialize the parser
     parser = argparse.ArgumentParser(description="Ansible playbook run ")
@@ -34,6 +35,6 @@ if __name__ == '__main__':
     parser.add_argument('--env', help="env")
 
     args = parser.parse_args()
-    group = args.group
-    env = args.env
-    main(group, env)
+    grp = args.group
+    environment = args.env
+    main(grp, environment)
