@@ -5,6 +5,7 @@ genrate configuration files
 # -*- coding: utf-8 -*-
 import logging
 import sys
+import os
 import argparse
 from subprocess import check_output, STDOUT
 from jinja2 import Environment, FileSystemLoader
@@ -37,7 +38,8 @@ def main(group, env):
 
     """
     bastion_public_ip = get("bastion", "eu-west-1", "Public")
-    tpl_dir = Environment(loader=FileSystemLoader('/home/mehdi/oss-guidelines/infra-base/templates/'))
+    workdir = os.getcwd()
+    tpl_dir = Environment(loader=FileSystemLoader('{}/templates/'.format(workdir)))
     template_cfg = tpl_dir.get_template('ansible-cfg.j2')
     template_ssh = tpl_dir.get_template('ssh-cfg.j2')
     template_in = tpl_dir.get_template('inventory.j2')
