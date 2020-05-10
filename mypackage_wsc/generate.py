@@ -37,13 +37,13 @@ def main(group, env):
     Main
 
     """
-    bastion_public_ip = get("bastion", "eu-west-1", "Public")
+    bastion_public_ip = get("{}-{}-bastion-asg".format(group, env), "eu-west-1", "Public")
     workdir = os.getcwd()
     tpl_dir = Environment(loader=FileSystemLoader('{}/templates/'.format(workdir)))
     template_cfg = tpl_dir.get_template('ansible-cfg.j2')
     template_ssh = tpl_dir.get_template('ssh-cfg.j2')
     template_in = tpl_dir.get_template('inventory.j2')
-    nginx_ips = get("nginx", "eu-west-1", "Private")
+    nginx_ips = get("{}-{}-nginx-asg".format(group, env), "eu-west-1", "Private")
     nginx_ips = nginx_ips.split("\n")
 
     if nginx_ips == ['']:
@@ -86,6 +86,9 @@ if __name__ == '__main__':
     parser.add_argument('--group', help="group")
     parser.add_argument('--env', help="env")
     args = parser.parse_args()
+    if args.group is None or args.env is None:
+        logger.error("Missing argument , please verify help for more informations")
+        sys.exit(1)
     try:
         grp = str(args.group)
         environment = str(args.env)
