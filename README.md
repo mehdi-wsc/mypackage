@@ -14,7 +14,7 @@ to use mypackage_wsc you should follow Wedeployer skeletton.
 
 Using pip, the Python package manager:
 
-```python
+```
 pip install --user mypackage_wsc==0.0.7
 ```
 
