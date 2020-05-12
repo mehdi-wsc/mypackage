@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: mypackage-wsc
+Version: 0.0.7
+Summary: A small example package
+Home-page: https://github.com/mehdi-wsc/mypackage.git
+Author: mehdi wsc
+Author-email: kerbedjm@gmail.com
+License: UNKNOWN
+Description: #test
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown

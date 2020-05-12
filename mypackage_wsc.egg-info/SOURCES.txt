@@ -1,0 +1,12 @@
+README.md
+setup.py
+mypackage_wsc/__init__.py
+mypackage_wsc/generate.py
+mypackage_wsc/infra_bootstrap.py
+mypackage_wsc/infra_builder_terraform.py
+mypackage_wsc/install_nginx.py
+mypackage_wsc/remove_terraform.py
+mypackage_wsc.egg-info/PKG-INFO
+mypackage_wsc.egg-info/SOURCES.txt
+mypackage_wsc.egg-info/dependency_links.txt
+mypackage_wsc.egg-info/top_level.txt
