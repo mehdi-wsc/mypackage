@@ -27,20 +27,19 @@ I will describe below simple usage.
 
 - mypackage_wsc.infra_bootstrap:
 
-```python
+```
 python -m mypackage_wsc.infra_bootstrap --account <group>-<env>
 ```
 
 - mypackage_wsc.infra_builder_terraform:
 
-```python
+```
 python -m mypackage_wsc.infra_builder_terraform --account <group>-<env>
 ```
 
 - mypackage_wsc.install_nginx:
 
-```python
-
+```
 python -m mypackage_wsc.install_nginx --group <group>-<env>
 ```
 
@@ -48,7 +47,7 @@ python -m mypackage_wsc.install_nginx --group <group>-<env>
 
 Here are features for infra_builder_terraform script:
 
-```python
+```
 Builder Terraform Script:
 optional arguments:
   -h, --help            show this help message and exit
@@ -63,7 +62,7 @@ optional arguments:
 
 Here are features for infra_bootstrap script :
 
-```python
+```
 Boot Strap script
 
 optional arguments:
