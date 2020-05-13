@@ -65,7 +65,7 @@ def main(args):
     parser.add_argument('--action', help="plan apply or destroy", default="apply")
     parser.add_argument('--region', help="eu-west-1 by default", default="eu-west-1")
     parser.add_argument('--layer', help="terraform layer")
-    parser.add_argument('--ignore', nargs='*', help="terraform layer you want to ignore it")
+    parser.add_argument('--ignore', nargs='*', help="terraform layer you want to ignore it", default="")
     parser.add_argument('--provider', help="cloud provider , by default aws", default="aws")
     parser.add_argument('--approve', help="Auto-approve option ,set 'yes' to enable it ")
 
@@ -78,6 +78,13 @@ def main(args):
     ignor = args.ignore
     provider = str(args.provider)
     auto = str(args.approve)
+
+    if args.provider == 'aws' or args.provider == 'gcp' or args.provider == 'azzure':
+        pro = args.provider
+    else:
+        logger.error("Error in provider argument")
+        sys.exit(1)
+
     options = ""
     target_bucket = "{}-{}-tfstate".format(account, region)
     command_find = "ls -1 {}{}".format(layer_path, provider)
@@ -85,6 +92,8 @@ def main(args):
     Layers = str(output.decode("utf-8"))
     Layers = Layers.split("\n")
     check_argument = True
+    first_check_ignore = set(ignor) - set(Layers)
+    second_check_ignore = set(ignor) & set(Layers)
 
     if args.account is None:
 
@@ -123,6 +132,10 @@ def main(args):
         logger.error("No Region Found with this Name")
         check_argument = False
 
+    if str(first_check_ignore) != "set()" or  len(second_check_ignore) == 0:
+         logger.error("Error in ignore argument,wrong layer")
+         check_argument = False
+    sys.exit(1)
     if auto == "yes":
 
         options = "-auto-approve"
