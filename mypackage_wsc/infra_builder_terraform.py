@@ -80,7 +80,7 @@ def main(args):
     auto = str(args.approve)
 
     if args.provider == 'aws' or args.provider == 'gcp' or args.provider == 'azzure':
-        pro = args.provider
+        provider = args.provider
     else:
         logger.error("Error in provider argument")
         sys.exit(1)
@@ -133,8 +133,8 @@ def main(args):
         check_argument = False
 
     if str(first_check_ignore) != "set()" or  len(second_check_ignore) == 0:
-         logger.error("Error in ignore argument,wrong layer")
-         check_argument = False
+        logger.error("Error in ignore argument,wrong layer")
+        check_argument = False
     sys.exit(1)
     if auto == "yes":
 
