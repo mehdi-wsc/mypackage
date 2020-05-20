@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="mypackage_wsc", # Replace with your own username
-    version="0.0.9",
+    name="mypackage_wsc",
+    version="1.0.0",
     author="mehdi wsc",
     author_email="kerbedjm@gmail.com",
     description="wedeployer package version beta",
