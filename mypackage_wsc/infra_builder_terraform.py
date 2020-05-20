@@ -132,10 +132,9 @@ def main(args):
         logger.error("No Region Found with this Name")
         check_argument = False
 
-    if str(first_check_ignore) != "set()" or  len(second_check_ignore) == 0:
+    if (str(first_check_ignore) != "set()" or  len(second_check_ignore) == 0) and str(ignor) != "":
         logger.error("Error in ignore argument,wrong layer")
         check_argument = False
-    sys.exit(1)
     if auto == "yes":
 
         options = "-auto-approve"
