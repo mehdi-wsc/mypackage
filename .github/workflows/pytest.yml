@@ -2,7 +2,7 @@ name: CI for Pytest
 on: push
 
 jobs:
-  lint-test:
+  pytest-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
