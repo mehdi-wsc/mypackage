@@ -1,5 +1,4 @@
 import os
-import subprocess
 def test_files():
     File1 = os.path.exists("./mypackage_wsc/infra_builder_terraform.py")
     File2 = os.path.exists("./mypackage_wsc/infra_bootstrap.py")
