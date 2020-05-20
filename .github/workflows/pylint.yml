@@ -11,6 +11,6 @@ jobs:
         with:
           python-version: '3.x'
       - name: Install pylint
-        run: pip3 install pylint
+        run: pip3 install pylint boto3 jinja2
       - name: test with pylint
         run: pylint *
