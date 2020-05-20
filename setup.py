@@ -5,10 +5,10 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="mypackage_wsc", # Replace with your own username
-    version="0.0.8",
+    version="0.0.9",
     author="mehdi wsc",
     author_email="kerbedjm@gmail.com",
-    description="A small example package",
+    description="wedeployer package version beta",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/mehdi-wsc/mypackage.git",
