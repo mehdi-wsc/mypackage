@@ -1,0 +1,16 @@
+name: CI for Pylint
+on: push
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python 3.
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install pylint
+        run: pip3 install pylint
+      - name: test with pylint
+        run: pylint *
