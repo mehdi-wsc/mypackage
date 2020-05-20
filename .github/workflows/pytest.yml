@@ -1,4 +1,4 @@
-name: CI for Pylint
+name: CI for Pytest
 on: push
 
 jobs:
@@ -11,6 +11,6 @@ jobs:
         with:
           python-version: '3.x'
       - name: Install pylint
-        run: pip3 install pytest
+        run: pip3 install pytest boto3 jinja2
       - name: test with pytest
         run: pytest 
