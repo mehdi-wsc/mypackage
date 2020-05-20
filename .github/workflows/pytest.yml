@@ -14,7 +14,3 @@ jobs:
         run: pip3 install pytest boto3 jinja2
       - name: test with pytest
         run: pytest 
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
