@@ -85,18 +85,7 @@ def main(args):
         logger.error("Error in provider argument")
         sys.exit(1)
 
-    options = ""
-    target_bucket = "{}-{}-tfstate".format(account, region)
-    command_find = "ls -1 {}{}".format(layer_path, provider)
-    output = check_output(command_find, shell=True, stderr=STDOUT)
-    Layers = str(output.decode("utf-8"))
-    Layers = Layers.split("\n")
-    check_argument = True
-    first_check_ignore = set(ignor) - set(Layers)
-    second_check_ignore = set(ignor) & set(Layers)
-
     if args.account is None:
-
         logger.error("Missing account argument,Wedeployer Can not run without Account")
         sys.exit(1)
 
@@ -121,6 +110,18 @@ def main(args):
 
         logger.error("No attribute argumFileNotFoundError:ent")
         sys.exit()
+
+    options = ""
+    target_bucket = "{}-{}-tfstate".format(account, region)
+    command_find = "ls -1 {}{}".format(layer_path, provider)
+    output = check_output(command_find, shell=True, stderr=STDOUT)
+    Layers = str(output.decode("utf-8"))
+    Layers = Layers.split("\n")
+    check_argument = True
+    first_check_ignore = set(ignor) - set(Layers)
+    second_check_ignore = set(ignor) & set(Layers)
+
+
 
     if action not in ("apply", "plan", "destroy"):
 
