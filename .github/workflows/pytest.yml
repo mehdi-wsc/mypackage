@@ -10,7 +10,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-      - name: Install pylint
+      - name: Install pytest
         run: pip3 install pytest boto3 jinja2
       - name: test with pytest
         run: pytest 

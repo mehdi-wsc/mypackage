@@ -7,3 +7,7 @@ def test_files():
     assert File1 is True
     assert File2 is True
     assert File3 is True
+def test_reponse():
+    infra_bootstrap_response = subprocess.Popen(['python', 'mypackage_wsc/infra_bootstrap.py'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    test_1 = str(infra_bootstrap_response.communicate()[0])
+    assert test_1 == "b'Missing account argument,Wedeployer Can not run without Account\\n'"
