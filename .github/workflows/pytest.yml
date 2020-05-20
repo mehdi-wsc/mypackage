@@ -11,7 +11,9 @@ jobs:
         with:
           python-version: '3.x'
       - name: Install pytest
-        run: pip3 install pytest boto3 jinja2
+        run: pip3 install pytest jinja2
+      - name: instal boto3
+        run: pip3 install boto3 --upgrade --ignore six
       - name: test with pytest
         run: pytest 
         env:
