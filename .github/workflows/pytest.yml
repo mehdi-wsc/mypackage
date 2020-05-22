@@ -13,4 +13,4 @@ jobs:
       - name: Install pytest
         run: pip3 install pytest jinja2 boto3
       - name: test with pytest
-        run: pytest 
+        run: pytest
