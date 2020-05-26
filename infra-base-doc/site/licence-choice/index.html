@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Licence choice - My Docs</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+	
+	<script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="..">My Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                    <li >
+                        <a href="../ansible/">Ansible</a>
+                    </li>
+                    <li >
+                        <a href="../bootstrap/">Bootstrap</a>
+                    </li>
+                    <li class="active">
+                        <a href="./">Licence choice</a>
+                    </li>
+                    <li >
+                        <a href="../wedeployer/">Wedeployer</a>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../bootstrap/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../wedeployer/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#licence-choice">Licence choice</a></li>
+            <li><a href="#gnu-gplv3">GNU GPLv3</a></li>
+            <li><a href="#mit">MIT</a></li>
+            <li><a href="#apache-license-20">Apache License 2.0</a></li>
+            <li><a href="#final-choice">Final Choice</a></li>
+            <li><a href="#-stringent-limitation-can-discourage-some-people-to-contribute-if-they-want-to-develop-closed-source-versions-of-the-projects">- Stringent limitation can discourage some people to contribute, if they want to develop closed source versions of the projects.</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="licence-choice">Licence choice</h1>
+<p>In this document I will introduce an initiation to licenses used in opensource projects, advantages and drawbacks of each one.</p>
+<h2 id="gnu-gplv3">GNU GPLv3</h2>
+<p>The GNU General Public License is a free, copyleft license for
+software and other kinds of works, created by Richard Stallman</p>
+<h3 id="pros">Pros :</h3>
+<ul>
+<li>
+<p>The GPL is an attempt to keep efforts, regardless of demand, at the research and development stages.<br />
+This maximizes the benefits to researchers and developers, with a certain cost to those who would benefit from wider distribution.</p>
+</li>
+<li>
+<p>The GPL explicitly disallows revoking the license.</p>
+</li>
+</ul>
+<h3 id="cons">Cons :</h3>
+<ul>
+<li>Lots of people aren't aware of the stringent terms of GPL, so use it as it's the license they've heard of without realizing what restrictions they're placing on anyone else that wants to use it.</li>
+<li>Its extremely viral. If your project contains a component that contains a component that is under the GPL, your whole project is subject to the GPL too.</li>
+</ul>
+<h2 id="mit">MIT</h2>
+<p>Originating at the Massachusetts Institute of Technology (MIT) in the late 1980,It is compatible because it can be re-licensed under other licenses. The MIT license is compatible with many copyleft licenses, such as the GNU General Public License (GPL), MIT licensed software can be re-licensed as GPL software, and integrated with other GPL software, but not the other way around.</p>
+<h3 id="pros_1">Pros :</h3>
+<ul>
+<li>The license is permissive. This means that you have lots of permission and few restrictions.</li>
+<li>most compatible for combining code in other open source libraries.</li>
+<li>most commonly used license.</li>
+</ul>
+<h3 id="cons_1">Cons :</h3>
+<ul>
+<li>The disadvantage is that anyone can take software licensed under MIT, change the branding, and sell it as proprietary software.<br />
+Commercializing software released under an MIT license is more challenging. A common business model involves licensing the software as open-source, and offering proprietary extensions built on top of that software.</li>
+</ul>
+<h2 id="apache-license-20">Apache License 2.0</h2>
+<h3 id="pros_2">Pros :</h3>
+<ul>
+<li>
+<p>Apache License 2.0 allows users of the software to distribute, modify, or otherwise use software for any purpose, as long as the user complies with the license terms. The terms state that users can’t remove existing copyright, patent, trademarks and attribution notices.</p>
+</li>
+<li>
+<p>Recent updates of the license, leading up to Apache License 2.0, allow it to be included by reference, instead of listed in every software file, meaning developers don’t need to insert license text into the GUI.</p>
+</li>
+<li>
+<p>This license is considered by many to offer the best patent protection among the permissive licenses.</p>
+</li>
+</ul>
+<h3 id="cons_2">Cons :</h3>
+<ul>
+<li>A limitation of this license for developers is that it requires you to add prominent notifications of any changes you make to a file.</li>
+<li>More complex than MIT due to CLA</li>
+<li>Not as compatible with other open sources licenses as MIT</li>
+</ul>
+<h2 id="final-choice">Final Choice</h2>
+<p>Choice is : GNU GPLv3</p>
+<h3 id="conclusion">Conclusion :</h3>
+<p>The first term in GPL is "Any licensee who adheres to the terms and conditions is given permission to modify the work,<br />
+as well as to copy and redistribute the work or any derivative version.  </p>
+<p>The licensee is allowed to charge a fee for this service, or do this free of charge".  </p>
+<p>The terms of GPL are stringent, so we can lose many people who can contribute in this project, rather our project is opensource,<br />
+so make it business is not our goal, and we want to share knowledge with others, therefore the best way is to make it under GPL license.  </p>
+<p>It makes sure that project will develop by the Open Source community, it stays Open Source; no chance of someone taking<br />
+all the work that others have been doing, repackaging it and selling it on.</p>
+<h3 id="pros_3">Pros :</h3>
+<ul>
+<li>This protects the code to be attributed to someone else, and to be exploited for business reasons.</li>
+<li>People can do almost anything they want with the projects, except distributing closed source versions.</li>
+<li></li>
+</ul>
+<h3 id="cons_3">Cons :</h3>
+<h2 id="-stringent-limitation-can-discourage-some-people-to-contribute-if-they-want-to-develop-closed-source-versions-of-the-projects">- Stringent limitation can discourage some people to contribute, if they want to develop closed source versions of the projects.</h2>
+<ul>
+<li></li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+        <script src="../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

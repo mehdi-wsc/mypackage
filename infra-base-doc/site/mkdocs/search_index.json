@@ -1,0 +1,139 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Welcome to MkDocs\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.",
+            "title": "Home"
+        },
+        {
+            "location": "/#welcome-to-mkdocs",
+            "text": "For full documentation visit  mkdocs.org .",
+            "title": "Welcome to MkDocs"
+        },
+        {
+            "location": "/#commands",
+            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.",
+            "title": "Commands"
+        },
+        {
+            "location": "/#project-layout",
+            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.",
+            "title": "Project layout"
+        },
+        {
+            "location": "/ansible/",
+            "text": "Ansible\n\n\nAnsible is a tool used for automation,in this folder I create sub-directory named roles which we stored all roles used in this project.\nRoles expect files to be in certain directory names.\nRoles must include at least one of these directories, however it is perfectly fine to exclude any which are not being used. When in use, each directory must contain a main.yml file, which contains the relevant content:\n\n\n\n\ntasks - contains the main list of tasks to be executed by the role.\n\n\nhandlers - contains handlers, which may be used by this role or even anywhere outside this role.\n\n\ndefaults - default variables for the role.\n\n\nvars - other variables for the role.\n\n\nfiles - contains files which can be deployed via this role.\n\n\ntemplates - contains templates which can be deployed via this role.\n\n\nmeta - defines some meta data for this role. See below for more details.\n\n\n\n\nIn our project , we create role to install nginx in EC2 instances, I will explain how the role works in the section bellow:\n ## Tasks folder\n Tasks folder contains playbooks  yaml for this role , this files are :\n1. Build_Inventory : it is a set of ansible modules to create dynamically configurations for SSH and Inventory.\n2. Install_nginx : it contains modules to install and ensure that Nginx is well running in hosts dedicated.\n\n\nTemplates folder\n\n\nTemplates are written in Jinja2 , I wrote only Two files :\n1. Inventory.j2 : Template to build dynamically inventory.\n2. SSH.j2 : Template to build dynamically ssh configuration.",
+            "title": "Ansible"
+        },
+        {
+            "location": "/ansible/#ansible",
+            "text": "Ansible is a tool used for automation,in this folder I create sub-directory named roles which we stored all roles used in this project.\nRoles expect files to be in certain directory names.\nRoles must include at least one of these directories, however it is perfectly fine to exclude any which are not being used. When in use, each directory must contain a main.yml file, which contains the relevant content:   tasks - contains the main list of tasks to be executed by the role.  handlers - contains handlers, which may be used by this role or even anywhere outside this role.  defaults - default variables for the role.  vars - other variables for the role.  files - contains files which can be deployed via this role.  templates - contains templates which can be deployed via this role.  meta - defines some meta data for this role. See below for more details.   In our project , we create role to install nginx in EC2 instances, I will explain how the role works in the section bellow:\n ## Tasks folder\n Tasks folder contains playbooks  yaml for this role , this files are :\n1. Build_Inventory : it is a set of ansible modules to create dynamically configurations for SSH and Inventory.\n2. Install_nginx : it contains modules to install and ensure that Nginx is well running in hosts dedicated.",
+            "title": "Ansible"
+        },
+        {
+            "location": "/ansible/#templates-folder",
+            "text": "Templates are written in Jinja2 , I wrote only Two files :\n1. Inventory.j2 : Template to build dynamically inventory.\n2. SSH.j2 : Template to build dynamically ssh configuration.",
+            "title": "Templates folder"
+        },
+        {
+            "location": "/bootstrap/",
+            "text": "Boot strap\n\n\nBootstrap is directory contains terraform files , it's made to create S3 bucket and Dynamodb to save the tfstate there , it's consider as best practise to save tfstate remotely and made lock system to prevent using simultaneously state files.\n- input.tf : sets of variables used in configurations.\n- main.tf:  main configuration to create s3 / Dynamodb.\n- output.tf: output viewing configuration.\n- provider.tf: to decalre provider.\n- version.tf : to declare terrafom version.",
+            "title": "Bootstrap"
+        },
+        {
+            "location": "/bootstrap/#boot-strap",
+            "text": "Bootstrap is directory contains terraform files , it's made to create S3 bucket and Dynamodb to save the tfstate there , it's consider as best practise to save tfstate remotely and made lock system to prevent using simultaneously state files.\n- input.tf : sets of variables used in configurations.\n- main.tf:  main configuration to create s3 / Dynamodb.\n- output.tf: output viewing configuration.\n- provider.tf: to decalre provider.\n- version.tf : to declare terrafom version.",
+            "title": "Boot strap"
+        },
+        {
+            "location": "/licence-choice/",
+            "text": "Licence choice\n\n\nIn this document I will introduce an initiation to licenses used in opensource projects, advantages and drawbacks of each one.\n\n\nGNU GPLv3\n\n\nThe GNU General Public License is a free, copyleft license for\nsoftware and other kinds of works, created by Richard Stallman\n\n\nPros :\n\n\n\n\n\n\nThe GPL is an attempt to keep efforts, regardless of demand, at the research and development stages.\n\nThis maximizes the benefits to researchers and developers, with a certain cost to those who would benefit from wider distribution.\n\n\n\n\n\n\nThe GPL explicitly disallows revoking the license.\n\n\n\n\n\n\nCons :\n\n\n\n\nLots of people aren't aware of the stringent terms of GPL, so use it as it's the license they've heard of without realizing what restrictions they're placing on anyone else that wants to use it.\n\n\nIts extremely viral. If your project contains a component that contains a component that is under the GPL, your whole project is subject to the GPL too.\n\n\n\n\nMIT\n\n\nOriginating at the Massachusetts Institute of Technology (MIT) in the late 1980,It is compatible because it can be re-licensed under other licenses. The MIT license is compatible with many copyleft licenses, such as the GNU General Public License (GPL), MIT licensed software can be re-licensed as GPL software, and integrated with other GPL software, but not the other way around.\n\n\nPros :\n\n\n\n\nThe license is permissive. This means that you have lots of permission and few restrictions.\n\n\nmost compatible for combining code in other open source libraries.\n\n\nmost commonly used license.\n\n\n\n\nCons :\n\n\n\n\nThe disadvantage is that anyone can take software licensed under MIT, change the branding, and sell it as proprietary software.\n\nCommercializing software released under an MIT license is more challenging. A common business model involves licensing the software as open-source, and offering proprietary extensions built on top of that software.\n\n\n\n\nApache License 2.0\n\n\nPros :\n\n\n\n\n\n\nApache License 2.0 allows users of the software to distribute, modify, or otherwise use software for any purpose, as long as the user complies with the license terms. The terms state that users can\u2019t remove existing copyright, patent, trademarks and attribution notices.\n\n\n\n\n\n\nRecent updates of the license, leading up to Apache License 2.0, allow it to be included by reference, instead of listed in every software file, meaning developers don\u2019t need to insert license text into the GUI.\n\n\n\n\n\n\nThis license is considered by many to offer the best patent protection among the permissive licenses.\n\n\n\n\n\n\nCons :\n\n\n\n\nA limitation of this license for developers is that it requires you to add prominent notifications of any changes you make to a file.\n\n\nMore complex than MIT due to CLA\n\n\nNot as compatible with other open sources licenses as MIT\n\n\n\n\nFinal Choice\n\n\nChoice is : GNU GPLv3\n\n\nConclusion :\n\n\nThe first term in GPL is \"Any licensee who adheres to the terms and conditions is given permission to modify the work,\n\nas well as to copy and redistribute the work or any derivative version.  \n\n\nThe licensee is allowed to charge a fee for this service, or do this free of charge\".  \n\n\nThe terms of GPL are stringent, so we can lose many people who can contribute in this project, rather our project is opensource,\n\nso make it business is not our goal, and we want to share knowledge with others, therefore the best way is to make it under GPL license.  \n\n\nIt makes sure that project will develop by the Open Source community, it stays Open Source; no chance of someone taking\n\nall the work that others have been doing, repackaging it and selling it on.\n\n\nPros :\n\n\n\n\nThis protects the code to be attributed to someone else, and to be exploited for business reasons.\n\n\nPeople can do almost anything they want with the projects, except distributing closed source versions.\n\n\n\n\n\n\nCons :\n\n\n- Stringent limitation can discourage some people to contribute, if they want to develop closed source versions of the projects.",
+            "title": "Licence choice"
+        },
+        {
+            "location": "/licence-choice/#licence-choice",
+            "text": "In this document I will introduce an initiation to licenses used in opensource projects, advantages and drawbacks of each one.",
+            "title": "Licence choice"
+        },
+        {
+            "location": "/licence-choice/#gnu-gplv3",
+            "text": "The GNU General Public License is a free, copyleft license for\nsoftware and other kinds of works, created by Richard Stallman",
+            "title": "GNU GPLv3"
+        },
+        {
+            "location": "/licence-choice/#pros",
+            "text": "The GPL is an attempt to keep efforts, regardless of demand, at the research and development stages. \nThis maximizes the benefits to researchers and developers, with a certain cost to those who would benefit from wider distribution.    The GPL explicitly disallows revoking the license.",
+            "title": "Pros :"
+        },
+        {
+            "location": "/licence-choice/#cons",
+            "text": "Lots of people aren't aware of the stringent terms of GPL, so use it as it's the license they've heard of without realizing what restrictions they're placing on anyone else that wants to use it.  Its extremely viral. If your project contains a component that contains a component that is under the GPL, your whole project is subject to the GPL too.",
+            "title": "Cons :"
+        },
+        {
+            "location": "/licence-choice/#mit",
+            "text": "Originating at the Massachusetts Institute of Technology (MIT) in the late 1980,It is compatible because it can be re-licensed under other licenses. The MIT license is compatible with many copyleft licenses, such as the GNU General Public License (GPL), MIT licensed software can be re-licensed as GPL software, and integrated with other GPL software, but not the other way around.",
+            "title": "MIT"
+        },
+        {
+            "location": "/licence-choice/#pros_1",
+            "text": "The license is permissive. This means that you have lots of permission and few restrictions.  most compatible for combining code in other open source libraries.  most commonly used license.",
+            "title": "Pros :"
+        },
+        {
+            "location": "/licence-choice/#cons_1",
+            "text": "The disadvantage is that anyone can take software licensed under MIT, change the branding, and sell it as proprietary software. \nCommercializing software released under an MIT license is more challenging. A common business model involves licensing the software as open-source, and offering proprietary extensions built on top of that software.",
+            "title": "Cons :"
+        },
+        {
+            "location": "/licence-choice/#apache-license-20",
+            "text": "",
+            "title": "Apache License 2.0"
+        },
+        {
+            "location": "/licence-choice/#pros_2",
+            "text": "Apache License 2.0 allows users of the software to distribute, modify, or otherwise use software for any purpose, as long as the user complies with the license terms. The terms state that users can\u2019t remove existing copyright, patent, trademarks and attribution notices.    Recent updates of the license, leading up to Apache License 2.0, allow it to be included by reference, instead of listed in every software file, meaning developers don\u2019t need to insert license text into the GUI.    This license is considered by many to offer the best patent protection among the permissive licenses.",
+            "title": "Pros :"
+        },
+        {
+            "location": "/licence-choice/#cons_2",
+            "text": "A limitation of this license for developers is that it requires you to add prominent notifications of any changes you make to a file.  More complex than MIT due to CLA  Not as compatible with other open sources licenses as MIT",
+            "title": "Cons :"
+        },
+        {
+            "location": "/licence-choice/#final-choice",
+            "text": "Choice is : GNU GPLv3",
+            "title": "Final Choice"
+        },
+        {
+            "location": "/licence-choice/#conclusion",
+            "text": "The first term in GPL is \"Any licensee who adheres to the terms and conditions is given permission to modify the work, \nas well as to copy and redistribute the work or any derivative version.    The licensee is allowed to charge a fee for this service, or do this free of charge\".    The terms of GPL are stringent, so we can lose many people who can contribute in this project, rather our project is opensource, \nso make it business is not our goal, and we want to share knowledge with others, therefore the best way is to make it under GPL license.    It makes sure that project will develop by the Open Source community, it stays Open Source; no chance of someone taking \nall the work that others have been doing, repackaging it and selling it on.",
+            "title": "Conclusion :"
+        },
+        {
+            "location": "/licence-choice/#pros_3",
+            "text": "This protects the code to be attributed to someone else, and to be exploited for business reasons.  People can do almost anything they want with the projects, except distributing closed source versions.",
+            "title": "Pros :"
+        },
+        {
+            "location": "/licence-choice/#cons_3",
+            "text": "",
+            "title": "Cons :"
+        },
+        {
+            "location": "/licence-choice/#-stringent-limitation-can-discourage-some-people-to-contribute-if-they-want-to-develop-closed-source-versions-of-the-projects",
+            "text": "",
+            "title": "- Stringent limitation can discourage some people to contribute, if they want to develop closed source versions of the projects."
+        },
+        {
+            "location": "/wedeployer/",
+            "text": "Wedeployer Scripts\n\n\n\n\nI have create Python scripts to build Wedeployer package.\n\n\nI",
+            "title": "Wedeployer"
+        },
+        {
+            "location": "/wedeployer/#wedeployer-scripts",
+            "text": "I have create Python scripts to build Wedeployer package.  I",
+            "title": "Wedeployer Scripts"
+        }
+    ]
+}
