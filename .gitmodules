@@ -1,0 +1,4 @@
+[submodule "infra-base-doc/mypackage"]
+	path = infra-base-doc/mypackage
+	url = https://github.com/mehdi-wsc/mypackage.git
+	branch = master
