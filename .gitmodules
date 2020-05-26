@@ -2,3 +2,7 @@
 	path = infra-base-doc/mypackage
 	url = https://github.com/mehdi-wsc/mypackage.git
 	branch = master
+[submodule "infra-base-doc"]
+	path = infra-base-doc
+	url = https://github.com/mehdi-wsc/infra-base-doc.git
+	branch = master
