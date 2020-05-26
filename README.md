@@ -7,7 +7,7 @@ to use mypackage_wsc you should follow Wedeployer skeletton.
 
  Documentation to Wedeployer skeletton
  <br>
-<https://infra-doc.readthedocs.io/en/latest/>
+<https://infra-base-doc.readthedocs.io/en/latest/>
 </br>
 
 ## installation
