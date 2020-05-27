@@ -32,7 +32,8 @@ We use tags to automate generic actions such as:
 General Tagging Strategy
 ------------------------
 
-The following tags apply:
+- The following tags apply:
+
 | Tag Name       | Requisiteness | Format | Sample values | Remarks                                | Cost Allocation tag | Applicable on | Purpose                          |
 |----------------|---------------|--------|---------------|----------------------------------------|---------------------|---------------|----------------------------------|
 | owner          | mandatory     | string | wescale       | The actual owner of the account        |                     | all resources | reporting, filtering             |
