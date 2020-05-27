@@ -33,12 +33,12 @@ General Tagging Strategy
 ------------------------
 
 The following tags apply:
-| Tag Name           | Requisiteness | Format | Sample values                               | Remarks                                | Cost Allocation tag | Applicable on | Purpose                          |
-|--------------------|---------------|--------|---------------------------------------------|----------------------------------------|---------------------|---------------|----------------------------------|
-| owner              | mandatory     | string | wescale                                     | The actual owner of the account        |                     | all resources | reporting, filtering             |
-| account            | mandatory     | string | {group}-{env}                               | see reference in AWS Naming convention | Yes                 | all resources | reporting, filtering, permission |
-| createdBy          | mandatory     | string | {user-id}                                   |                                        |                     | all resources | reporting, filtering             |
-| taggingVersion    |mandatory       | string |  1.0.0                                      |                                        |                     | all resources | reporting, filtering             |
+ Tag Name           | Requisiteness | Format | Sample values        | Remarks                                | Cost Allocation tag | Applicable on | Purpose                          |
+|--------------------|---------------|--------|----------------------|----------------------------------------|---------------------|---------------|----------------------------------|
+| owner              | mandatory     | string | wescale              | The actual owner of the account        |                     | all resources | reporting, filtering             |
+| account            | mandatory     | string | {group}-{env}        | see reference in AWS Naming convention | Yes                 | all resources | reporting, filtering, permission |
+| createdBy          | mandatory     | string | {user-id}            |                                        |                     | all resources | reporting, filtering             |
+| taggingVersion     | mandatory     | string |  1.0.0               |                                        |                     | all resources | reporting, filtering             |
 
 doc
-:   [Naming convention](./naming.html)
+:   [Naming convention](./naming.md)

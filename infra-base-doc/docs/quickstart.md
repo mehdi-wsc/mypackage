@@ -6,11 +6,10 @@ Local configuration
 
 ### Requirements :
 
--   Docker
--   Bash
--   An AWS account
--   All the dependencies listed in the Docker image (that you can use
-    directly)
+- Docker
+- Bash
+- An AWS account
+- All the dependencies listed in the Docker image (that you can use directly)
 
 ### Docker environment :
 
@@ -46,21 +45,19 @@ To adapt to your own account and set your own values,
 just copy paste the folder “mygroup”, and change the names of the
 folders :
 
--   mygroup : is a logical entity that represent your context (for
-    instance : “mycompany”)
--   myenv : is the iteration of the infrastructure dedicated to a
-    purpose (for instance : “dev”, “staging” or “prod”)
+- mygroup : is a logical entity that represent your context (for instance : “mycompany”)
+- myenv : is the iteration of the infrastructure dedicated to a purpose (for instance : “dev”, “staging” or “prod”)
 
 Ansible configuration:
 ----------------------
 
--   First,we install Nginx Role :
+- First,we install Nginx Role :
 
 <!-- -->
 
     ansible-galaxy install mehdi_wsc.nginx -p ./ansible/roles/external/
 
--   Second,We specify ansible configuration for the environnement:
+- Second,We specify ansible configuration for the environnement:
 
 <!-- -->
 
@@ -69,7 +66,7 @@ Ansible configuration:
 Build Infrastructure :
 ----------------------
 
--   Run bootstrap script:
+Run bootstrap script:
 
 <!-- -->
 

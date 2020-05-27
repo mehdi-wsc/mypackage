@@ -11,14 +11,14 @@ infrastructure.
 Benefits
 ========
 
--   wedeployer skelleton allows you to launch wedeployer python package.
--   you can use Docker workstation.
--   high structure which facilitates debugging problems.
+- wedeployer skelleton allows you to launch wedeployer python package.
+- you can use Docker workstation.
+- high structure which facilitates debugging problems.
 
 wedeployer package
 ==================
 
--   wedeployer github page:
+- wedeployer github page:
 
 [Github wedployer repo](https://github.com/mehdi-wsc/mypackage)
 
@@ -35,12 +35,10 @@ tree below describes the required organization to set files:
     │   │       ├── 01-<name of first layer>/(tf files)
     │   │       └── 02-<name of second layer>/(tf files)
 
--   bootstrap: is folder where to store bootstap scenario for example (
-    create s3 bucket and dynamodb to store tfstate).
--   layers: is folder where to store your stack terraform layers.
--   After bootstrap and layers you should specify the provider.
--   Name of layer should be : xx-\<name of layer\>(with xx from 00 to
-    99).
+- bootstrap: is folder where to store bootstap scenario for example (create s3 bucket and dynamodb to store tfstate).
+- layers: is folder where to store your stack terraform layers.
+- After bootstrap and layers you should specify the provider.
+- Name of layer should be : xx-\<name of layer\>(with xx from 00 to 99).
 
 configuration structure
 =======================
@@ -66,13 +64,10 @@ To adapt to your own account and set your own values,
 just copy paste the folder "mygroup", and change the names of the
 folders :
 
--   mygroup: is a logical entity that represent your context (for
-    instance : "mycompany").
--   myenv: is the iteration of the infrastructure dedicated to a purpose
-    (for instance : "dev", "staging" or "prod").
--   Terraform tfvars: the name of file should be layer-xx-\<name of
-    layer\>.tfvars.
--   Ansible configs: you set ssh.cfg and inventory.
+- mygroup: is a logical entity that represent your context (for instance : "mycompany").
+- myenv: is the iteration of the infrastructure dedicated to a purpose (for instance : "dev", "staging" or "prod").
+- Terraform tfvars: the name of file should be layer-xx-\<name of layer\>.tfvars.
+- Ansible configs: you set ssh.cfg and inventory.
 
 ansible structure
 =================
@@ -90,9 +85,8 @@ and specify roles in roles subdirectory.
 configuration and templates files
 =================================
 
--   I had jinja2 templates to generate ansible configuration files
-    (ssh.cfg ,inventory,ansible.cfg).
--   you can already customize your templates files in :
+- I had jinja2 templates to generate ansible configuration files  (ssh.cfg ,inventory,ansible.cfg).
+- you can already customize your templates files in :
 
 <!-- -->
 
@@ -139,9 +133,7 @@ Exemple configuration:
         ├── Dockerfile
         └── launch.sh
 
--   to understand how it works , we have infra-base quickstart example:
+- to understand how it works , we have infra-base quickstart example:
 
 doc
-:   [Quick start page](./quickstart.html)
-
-
+:   [Quick start page](./quickstart.md)

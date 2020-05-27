@@ -6,8 +6,7 @@ Main considerations
 
 Our conventions are described here ,The main terms we will use are :
 
-- group = a logical whole to define the context where we are working
-    (example : wsc).
+- group = a logical whole to define the context where we are working (example : wsc).
 - env = the iteration of the infrastructure for different puposes,values are : dev, staging, prod.
 - aws_account = terraform_workspace.
 - availibility_zone = the az, with this format : "eu-west-1a".
