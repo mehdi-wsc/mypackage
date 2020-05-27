@@ -8,4 +8,4 @@ version: 2
 
 # Build documentation with MkDocs
 mkdocs:
-  configuration: ./infra-base-doc/mkdocs.yml
+  configuration: ./infra-base-doc/
