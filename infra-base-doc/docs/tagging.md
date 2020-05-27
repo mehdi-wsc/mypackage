@@ -40,5 +40,6 @@ General Tagging Strategy
 | account        | mandatory     | string | {group}-{env} | see reference in AWS Naming convention | Yes                 | all resources | reporting, filtering, permission |
 | createdBy      | mandatory     | string | {user-id}     |                                        |                     | all resources | reporting, filtering             |
 | taggingVersion | mandatory     | string | 1.0.0         |                                        |                     | all resources | reporting,filtering              |
-doc
+
+- doc
 :   [Naming convention](./naming.md)
