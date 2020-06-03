@@ -6,7 +6,7 @@ genrate configuration files
 import logging
 import sys
 import os
-import argparse
+    import argparse
 from subprocess import check_output, STDOUT
 from jinja2 import Environment, FileSystemLoader
 
